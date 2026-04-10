@@ -1,0 +1,80 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ========================
+# Virtual Environments
+# ========================
+myenv/
+venv/
+.venv/
+env/
+ENV/
+
+# ========================
+# Distribution / Packaging
+# ========================
+dist/
+build/
+*.egg-info/
+*.egg
+*.whl
+
+# ========================
+# NLP Data & Models
+# ========================
+# Large dataset files (CoNLL-U, CSV, JSON, etc.)
+*.conll
+*.tsv
+
+# Hugging Face / Transformers cache
+huggingface/
+.cache/
+
+# spaCy model downloads
+en_core_web_*/
+
+# NLTK data
+nltk_data/
+
+# ========================
+# Generated Output
+# ========================
+# Matplotlib / chart outputs
+*.jpg
+*.jpeg
+*.svg
+
+# ========================
+# Jupyter Notebooks
+# ========================
+.ipynb_checkpoints/
+
+# ========================
+# IDE / Editor
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ========================
+# OS Files
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# Miscellaneous
+# ========================
+*.log
+*.pkl
+*.pickle
+*.h5
+*.pt
+*.bin
