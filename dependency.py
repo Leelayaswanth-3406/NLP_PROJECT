@@ -6,7 +6,7 @@ def run_dependency(text_list):
 
     print("\nDependency Parsing:\n")
 
-    text = text_list[0]  # take first sentence
+    text = text_list[0]
 
     doc = nlp(text)
 

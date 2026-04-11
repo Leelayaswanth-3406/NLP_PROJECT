@@ -1,29 +1,32 @@
 import matplotlib.pyplot as plt
-from nltk.tokenize import word_tokenize
+from nltk.tokenize import word_tokenize, RegexpTokenizer, TreebankWordTokenizer
 import spacy
 from transformers import BertTokenizer
 
 nlp = spacy.load("en_core_web_sm")
 bert_tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+regex_tokenizer = RegexpTokenizer(r'\w+')
+treebank_tokenizer = TreebankWordTokenizer()
 
 def run_graph(text_list):
 
-    nltk_count = 0
-    spacy_count = 0
-    bert_count = 0
+    nltk = tree = regex = spacy_c = bert = char = 0
 
     for text in text_list:
-        nltk_count += len(word_tokenize(text))
-        spacy_count += len([t.text for t in nlp(text)])
-        bert_count += len(bert_tokenizer.tokenize(text))
+        nltk += len(word_tokenize(text))
+        tree += len(treebank_tokenizer.tokenize(text))
+        regex += len(regex_tokenizer.tokenize(text))
+        spacy_c += len([t.text for t in nlp(text)])
+        bert += len(bert_tokenizer.tokenize(text))
+        char += len(list(text))
 
-    names = ["NLTK", "SpaCy", "BERT"]
-    values = [nltk_count, spacy_count, bert_count]
+    names = ["NLTK", "Treebank", "Regex", "SpaCy", "BERT", "Char"]
+    values = [nltk, tree, regex, spacy_c, bert, char]
 
     plt.bar(names, values)
     plt.title("Tokenizer Comparison")
     plt.xlabel("Tokenizer")
-    plt.ylabel("Number of Tokens")
+    plt.ylabel("Token Count")
 
     for i, v in enumerate(values):
         plt.text(i, v, str(v), ha='center')
